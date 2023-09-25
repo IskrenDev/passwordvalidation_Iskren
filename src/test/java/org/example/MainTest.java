@@ -56,7 +56,7 @@ class MainTest {
     @Test
     void ifPasswordHasSpecialSymbols_thenReturnTrue() {
         //GIVEN
-        String password = "A$tvdsrweas";
+        String password = "pass1234";
         //WHEN
         boolean actual = Main.checkForSpecialSymbols(password);
         //THEN

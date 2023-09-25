@@ -1,12 +1,16 @@
 package org.example;
 
 
+import java.sql.SQLOutput;
+import java.util.Random;
+
 import static java.lang.Character.isUpperCase;
 
 public class Main {
     public static void main(String[] args) {
         //System.out.println(checkForNumbersInPassword("abc0"));
-        System.out.println(checkForSpecialSymbols("DA%&&§SDSADAS"));
+        System.out.println(checkForSpecialSymbols("daas dasdasd"));
+        System.out.println(generatePassword());
     }
 
 
@@ -19,9 +23,9 @@ public class Main {
     //checkForNumbersInPassword
     public static boolean checkForNumbersInPassword(String password) {
             if (password.matches("[a-zA-Z]+")) {
-                return true;
+                return false;
         }
-        return false;
+        return true;
     }
 
 
@@ -53,16 +57,27 @@ public class Main {
     }
 
     public static boolean checkForSpecialSymbols(String password) {
-        //char [] specialSymbols = {'*', '?', '%', '§', '#'};
-            if (password.matches("[a-zA-Z0-9]+")) {
-                return false;
-            }
-            return true;
+        if (password.matches("[a-zA-Z0-9\\s]+")) {
+            return false;
+        }
+        return true;
+    }
+
+
+    public static String generatePassword() {
+        StringBuilder sb = new StringBuilder(30);
+        for (int i = 8; i < 30; i++) {
+
+            String randomSymbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!§$%&?";
+            int index = (int)(randomSymbols.length() * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(randomSymbols.charAt(index));
+        }
+
+        return sb.toString();
     }
 }
-
-
-
 
 
 //checkForUserPasswords
