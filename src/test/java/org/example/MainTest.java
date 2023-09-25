@@ -44,7 +44,7 @@ class MainTest {
     @Test
     void ifPasswordIsWeak_thenReturnTrue() {
         //GIVEN
-        String password = "Aa345678";
+        String password = "fGywqWJ%§rty418CYX";
         //WHEN
         boolean actual = Main.checkForWeakPassword(password);
         //THEN

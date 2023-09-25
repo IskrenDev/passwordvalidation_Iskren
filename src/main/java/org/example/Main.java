@@ -13,22 +13,16 @@ public class Main {
         System.out.println(generatePassword());
     }
 
-
-
-    //checkPasswordLength
     public static int checkPasswordlength(String password) {
         return 6;
     }
 
-    //checkForNumbersInPassword
     public static boolean checkForNumbersInPassword(String password) {
             if (password.matches("[a-zA-Z]+")) {
                 return false;
         }
         return true;
     }
-
-
 
     public static boolean hasUpperAndLowercase(String password) {
         boolean hasLowerCase = false;
@@ -48,10 +42,11 @@ public class Main {
     }
 
     public static boolean checkForWeakPassword(String password) {
-        String weakPassword1 = "Password1";
-        String weakPassword2 = "Aa345678";
-        if (weakPassword1.equals(password) || weakPassword2.equals(password)) {
-            return true;
+        String[] commonPasswords = {"12345678", "password", "Alex", "welcome", "HELLO"};
+        for (String commonPassword : commonPasswords) {
+            if (password.equals(commonPassword)) {
+                return true;
+            }
         }
         return false;
     }
@@ -71,13 +66,10 @@ public class Main {
             String randomSymbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!§$%&?";
             int index = (int)(randomSymbols.length() * Math.random());
 
-            // add Character one by one in end of sb
+            // fügt am Ende von sb ein Zeichen nach dem anderen hinzu
             sb.append(randomSymbols.charAt(index));
         }
 
         return sb.toString();
     }
 }
-
-
-//checkForUserPasswords
