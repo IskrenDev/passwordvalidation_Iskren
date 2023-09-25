@@ -5,7 +5,8 @@ import static java.lang.Character.isUpperCase;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(checkForNumbersInPassword("abc0"));
+        //System.out.println(checkForNumbersInPassword("abc0"));
+        System.out.println(checkForSpecialSymbols("DA%&&§SDSADAS"));
     }
 
 
@@ -17,7 +18,7 @@ public class Main {
 
     //checkForNumbersInPassword
     public static boolean checkForNumbersInPassword(String password) {
-            if (password.matches(".*[0-9].*")) {
+            if (password.matches("[a-zA-Z]+")) {
                 return true;
         }
         return false;
@@ -49,6 +50,14 @@ public class Main {
             return true;
         }
         return false;
+    }
+
+    public static boolean checkForSpecialSymbols(String password) {
+        //char [] specialSymbols = {'*', '?', '%', '§', '#'};
+            if (password.matches("[a-zA-Z0-9]+")) {
+                return false;
+            }
+            return true;
     }
 }
 

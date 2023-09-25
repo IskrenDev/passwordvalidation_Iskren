@@ -53,4 +53,16 @@ class MainTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void ifPasswordHasSpecialSymbols_thenReturnTrue() {
+        //GIVEN
+        String password = "A$tvdsrweas";
+        //WHEN
+        boolean actual = Main.checkForSpecialSymbols(password);
+        //THEN
+        boolean expected = true;
+
+        assertEquals(expected, actual);
+    }
+
 }
